@@ -21,8 +21,6 @@ namespace TwoRolesClassOOP
         }
         class BankOfAccount
         {
-            private int accountBank { get; set; }
-
             private int balanceAccount { get; set; }
 
             private enum typeBankAccount { current,estimated,credit }
