@@ -21,26 +21,26 @@ namespace TwoRolesClassOOP
         }
         class BankOfAccount
         {
-            private int accountBank { get; set; }
+            private int AccountBank { get; set; }
 
-            private int balanceAccount { get; set; }
+            private int BalanceAccount { get; set; }
 
-            private enum typeBankAccount { current,estimated,credit }
+            private enum TypeBankAccount { current,estimated,credit }
 
             public void Account()
             {
                 
-                accountBank = 8689;
-                Console.WriteLine("Номер счета: " + accountBank);
+                AccountBank = 8689;
+                Console.WriteLine("Номер счета: " + AccountBank);
             }
             public void Balance()
             {
-                balanceAccount = 3000000;
-                Console.WriteLine("Баланс на счете: "+balanceAccount);
+                BalanceAccount = 3000000;
+                Console.WriteLine("Баланс на счете: "+BalanceAccount);
             }
             public void TypeAccount()
             {
-                typeBankAccount type = typeBankAccount.estimated;
+                TypeBankAccount type = TypeBankAccount.estimated;
                 Console.WriteLine("Тип банковского счета: "+type);
                 
             }
