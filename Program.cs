@@ -14,40 +14,49 @@ namespace TwoRolesClassOOP
     {
         static void Main(string[] args)
         {
-            BankOfAccount bankOfAccount = new();
-            bankOfAccount.Account();
-            bankOfAccount.Balance();
-            bankOfAccount.TypeAccount();
+            BankOfAccount bankOfAccount1 = new(3000000);
+            BankOfAccount bankOfAccount2 = new("estimated");
         }
         class BankOfAccount
         {
-            private int accountBank { get; set; }
+            private int _AccountBank { get; set; }
 
-            private int balanceAccount { get; set; }
+            private int _BalanceAccount { get; set; }
 
-            private enum typeBankAccount { current,estimated,credit }
+            private string _TypeBankAccount { get; set; }
 
-            public void Account()
+            public void GenerateAccount()
             {
+                int accountBank = _AccountBank;
                 Random randomAccount = new();
                 for (int i = 0; i < 1; i++)
                 {
                     Console.WriteLine("Номер счета:{0,3}", randomAccount.Next());
                 }
-
-
             }
-            public void Balance()
+            /// <summary>
+            /// конструктор для заполнения поля баланс
+            /// </summary>
+            /// <param name=""></param>
+            public BankOfAccount(int _BalanceAccount)
             {
-                balanceAccount = 3000000;
-                Console.WriteLine("Баланс на счете: "+balanceAccount);
-            }
-            public void TypeAccount()
-            {
-                typeBankAccount type = typeBankAccount.estimated;
-                Console.WriteLine("Тип банковского счета: "+type);
                 
+                int balanceAccount = _BalanceAccount;
+                GenerateAccount();
+                balanceAccount = 3000000;
+                Console.WriteLine("На счете баланс составил :{0}",balanceAccount);
             }
+            /// <summary>
+            /// конструктор для заполнения банковского счета
+            /// </summary>
+            public BankOfAccount(string _TypeBankAccount)
+            {
+                string typeBankAccount = _TypeBankAccount;
+                GenerateAccount();
+                typeBankAccount = "estimated";
+                Console.WriteLine("Тип банковского счета: " + typeBankAccount);
+            }
+
         }
 
     }
