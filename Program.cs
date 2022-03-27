@@ -14,8 +14,8 @@ namespace TwoRolesClassOOP
     {
         static void Main(string[] args)
         {
-            BankOfAccount bankOfAccount1 = new(3000000);
-            BankOfAccount bankOfAccount2 = new("estimated");
+            BankOfAccount bankOfAccount = new("estimated",3000000);
+            
         }
         class BankOfAccount
         {
@@ -40,11 +40,8 @@ namespace TwoRolesClassOOP
             /// <param name=""></param>
             public BankOfAccount(int _BalanceAccount)
             {
-                
                 int balanceAccount = _BalanceAccount;
-                GenerateAccount();
-                balanceAccount = 3000000;
-                Console.WriteLine("На счете баланс составил :{0}",balanceAccount);
+                GenerateAccount();                
             }
             /// <summary>
             /// конструктор для заполнения банковского счета
@@ -52,9 +49,13 @@ namespace TwoRolesClassOOP
             public BankOfAccount(string _TypeBankAccount)
             {
                 string typeBankAccount = _TypeBankAccount;
-                GenerateAccount();
-                typeBankAccount = "estimated";
-                Console.WriteLine("Тип банковского счета: " + typeBankAccount);
+                GenerateAccount();                
+            }
+            public BankOfAccount(string _TypeBankAccount, int _BalanceAccount)
+            {
+                int balanceAccount = _BalanceAccount;
+                string typeBankAccount = _TypeBankAccount;
+                Console.WriteLine("На счете {0} баланс составил: {1}",typeBankAccount,balanceAccount);
             }
 
         }
