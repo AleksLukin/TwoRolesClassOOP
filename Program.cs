@@ -14,54 +14,36 @@ namespace TwoRolesClassOOP
     {
         static void Main(string[] args)
         {
-            BankOfAccount bankOfAccount = new("estimated",3000000);
-            
+            var bankOfAccount = new BankOfAccount();
+            bankOfAccount.AccountBank = 8696;
+            bankOfAccount.TypeBankAccount = "накопительный";
+            bankOfAccount.BalanceAccount = 3000000;
+            Console.WriteLine("На {0} счете  {1} баланс составил: {2}",bankOfAccount.TypeBankAccount, bankOfAccount.AccountBank,bankOfAccount.BalanceAccount);
         }
         class BankOfAccount
         {
-            private int _AccountBank { get; set; }
+            private int accountBank;
 
-            private int _BalanceAccount { get; set; }
+            public int AccountBank
+            {
+                get { return accountBank; }
+                set { accountBank = value; }
+            }
+            private int balanceAccount;
 
-            private string _TypeBankAccount { get; set; }
+            public int BalanceAccount
+            {
+                get { return balanceAccount; }
+                set { balanceAccount = value;  }
+            }
+            private string typeBankAccount;
 
-            public void GenerateAccount()
+            public string TypeBankAccount
             {
-                int accountBank = _AccountBank;
-                Random randomAccount = new();
-                for (int i = 0; i < 1; i++)
-                {
-                    Console.WriteLine("Номер счета:{0,3}", randomAccount.Next());
-                }
+                get { return typeBankAccount; }
+                set { typeBankAccount = value; }
             }
-            /// <summary>
-            /// конструктор для заполнения поля баланс
-            /// </summary>
-            /// <param name=""></param>
-            public BankOfAccount(int _BalanceAccount)
-            {
-                int balanceAccount = _BalanceAccount;
-                GenerateAccount();                
-            }
-            /// <summary>
-            /// конструктор для заполнения банковского счета
-            /// </summary>
-            public BankOfAccount(string _TypeBankAccount)
-            {
-                string typeBankAccount = _TypeBankAccount;
-                GenerateAccount();                
-            }
-            public BankOfAccount(string _TypeBankAccount, int _BalanceAccount)
-            {
-                int balanceAccount = _BalanceAccount;
-                string typeBankAccount = _TypeBankAccount;
-                Console.WriteLine("На счете {0} баланс составил: {1}",typeBankAccount,balanceAccount);
-            }
-
         }
-
     }
 }
-/// 3.В классе банковский счет удалить методы заполнения полей. Вместо этих методов создать конструкторы. 
-/// Переопределить конструктор по умолчанию, создать конструктор для заполнения поля баланс, конструктор для заполнения поля тип банковского счета, 
-/// конструктор для заполнения баланса и типа банковского счета. Каждый конструктор должен вызывать метод, генерирующий номер счета.
+/// В классе все методы для заполнения и получения значений полей заменить на свойства.Написать тестовый пример.
